@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<!-- <div class="card" style="width: 18rem;">
+  <img src="https://picsum.photos/200/300" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Harry Potter</h5>
+    <p class="card-text">Card ID</p>
+    
+    <a href="#" class="btn btn-primary">Remove Book</a>
+  </div>
+</div>  -->
+
+
+<div class="row row-cols-1 row-cols-md-5 g-4">
+  {% for book in books %}
+      {{book.id}}-{{book.author}}-{{book.type}}
+      <div class="col">
+          <div class="card border-primary mb-3">
+            <img src="https://picsum.photos/200/300" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{book.author}}</h5>
+              <p class="card-text">id: {{book.id}}, type: {{book.type}}</p>
+              <a href ="/removeBook?id={{book.id}}&author={{book.author}}" type="button" class="btn btn-danger">Remove</a>
+            </div>
+          </div>
+        </div> 
+  {% endfor %}
+  </div> 
+  {% endblock %}
